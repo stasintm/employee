@@ -15,6 +15,9 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+/**
+ * UseCase поиска сотрудников по параметрам.
+ */
 @Component
 @RequiredArgsConstructor
 public class EmployeeSearchUseCase {
@@ -28,6 +31,11 @@ public class EmployeeSearchUseCase {
     private final EntityManager entityManager;
     private final EmployeeMapper mapper;
 
+    /**
+     * Метод поиска сотрудников по параметрам.
+     * @param query поисковая строка
+     * @return      список сотрудников
+     */
     public List<EmployeeTo> execute(String query) {
         JPAQuery<Employee> jpaQuery = new JPAQuery<>(entityManager);
         return jpaQuery.select(QEmployee.employee).from(QEmployee.employee)
@@ -46,8 +54,8 @@ public class EmployeeSearchUseCase {
                 .containsIgnoreCase(query)
             );
         } else if (Pattern.matches(PHONE_PATTERN, query)) {
-            var phone = query.replaceAll("\\s-", "")
-                .replaceAll("\\(\\)\\+", "");
+            var phone = query.replaceAll("\\s", "")
+                .replaceAll("[\\(\\)\\+-]", "");
             return condition.and(QEmployee.employee.phone.eq(phone));
         } else if (Pattern.matches(EMAIL_PATTERN, query)) {
             return condition.and(QEmployee.employee.email.eq(query));

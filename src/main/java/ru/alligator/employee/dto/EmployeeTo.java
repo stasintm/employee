@@ -8,12 +8,18 @@ import ru.alligator.employee.domain.Position;
 
 import java.util.UUID;
 
+/**
+ * To сотрудника.
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class EmployeeTo {
 
+    /**
+     * id.
+     */
     private UUID id;
 
     private String lastName;

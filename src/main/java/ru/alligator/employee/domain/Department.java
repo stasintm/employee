@@ -10,20 +10,39 @@ import lombok.Data;
 
 import java.util.UUID;
 
+/**
+ * Подразделение.
+ */
 @Entity
 @Data
 public class Department {
+
+    /**
+     * id.
+     */
     @Id
     private UUID id;
 
+    /**
+     * Наименование подразделения.
+     */
     @Column(nullable = false)
     private String name;
 
+    /**
+     * Признак удаления.
+     */
     private Boolean deleted;
 
+    /**
+     * Версия записи.
+     */
     @Version
     private Long ts;
 
+    /**
+     * Вышестоящее подразделение.
+     */
     @ManyToOne(fetch = FetchType.LAZY)
     private Department higherDepartment;
 }

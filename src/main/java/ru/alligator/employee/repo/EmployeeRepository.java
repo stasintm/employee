@@ -7,6 +7,9 @@ import ru.alligator.employee.domain.QEmployee;
 
 import java.util.UUID;
 
+/**
+ * JPA репозиторий сотрудника.
+ */
 public interface EmployeeRepository extends JpaRepository<Employee, UUID>,
     QuerydslPredicateExecutor<QEmployee> {
 }
