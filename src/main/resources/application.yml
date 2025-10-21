@@ -14,3 +14,18 @@ spring:
       ddl-auto: validate
   liquibase:
     change-log: classpath:/db/changelog/db.master-changelog.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    prometheus:
+      enabled: true
+    health:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true

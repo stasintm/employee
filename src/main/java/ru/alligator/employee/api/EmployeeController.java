@@ -1,5 +1,6 @@
 package ru.alligator.employee.api;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ public class EmployeeController {
     private final EmployeeService employeeService;
     private final EmployeeSearchUseCase searchUseCase;
 
+    @Operation(description = "Поиск сотрудника по id")
     @GetMapping("/{id}")
     public EmployeeTo findById(@PathVariable UUID id) {
         return employeeService.getById(id);
