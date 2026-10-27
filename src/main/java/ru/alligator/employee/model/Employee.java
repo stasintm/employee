@@ -72,4 +72,6 @@ public class Employee {
     @ManyToOne(fetch = FetchType.LAZY)
     private Department department;
 
+    private Boolean deleted = false;
+
 }

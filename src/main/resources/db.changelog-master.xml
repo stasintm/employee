@@ -7,5 +7,6 @@
 
     <include file="db/changelog/001-create-department-table.sql" relativeToChangelogFile="false"/>
     <include file="db/changelog/002-create-employee-table.sql" relativeToChangelogFile="false"/>
+    <include file="db/changelog/003-add-deleted-columns.sql" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>
