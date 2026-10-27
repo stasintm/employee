@@ -1,8 +1,11 @@
 package ru.alligator.employee.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import ru.alligator.employee.model.Position;
 
 import java.util.UUID;
@@ -13,6 +16,8 @@ import java.util.UUID;
  * Используется для передачи данных о сотруднике между слоями приложения.
  * </p>
  */
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
 public class EmployeeTo {
@@ -25,6 +30,7 @@ public class EmployeeTo {
     /**
      * Фамилия сотрудника.
      */
+    @Schema(description = "Фамилия")
     private String lastName;
 
     /**

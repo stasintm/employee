@@ -2,6 +2,8 @@ package ru.alligator.employee.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
@@ -21,6 +23,7 @@ public class Department {
      * Уникальный идентификатор отдела.
      */
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     /**
@@ -33,4 +36,6 @@ public class Department {
      */
     @ManyToOne(fetch = FetchType.LAZY)
     private Department parent;
+
+    private Boolean deleted = false;
 }
